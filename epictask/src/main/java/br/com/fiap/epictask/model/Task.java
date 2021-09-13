@@ -1,0 +1,32 @@
+package br.com.fiap.epictask.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class Task {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotBlank(message="O título é obrigatório.")
+	private String title;
+	
+	@Size(min=10, message="A descrição deve ter pelo menos 10 caracteres.")
+	private String description;
+	
+	@Min(value=10, message="Mínimo de 10 pontos.")
+	@Max(value=500, message="Máximo de 500 pontos.")
+	private int points;
+
+}

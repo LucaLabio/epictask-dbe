@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Users</title>
+</head>
+<body>
+
+	<h1>Epic Task</h1>
+	
+	<h2>Usuários: </h2>
+	
+	<ul th:each="user : ${users}">
+		<li>
+			<p th:text="${user.username}" />
+			<p th:text="${user.email}" />
+			<p th:text="${user.password}" />
+		</li>
+	</ul>
+
+</body>
+</html>
